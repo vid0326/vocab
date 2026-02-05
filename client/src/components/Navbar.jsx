@@ -118,7 +118,7 @@ const Navbar = () => {
                             Login
                         </Link>
                     )}
-                </div>}
+                </div>
                 <button
                     className="mobile-only"
                     onClick={toggleMobileMenu}
