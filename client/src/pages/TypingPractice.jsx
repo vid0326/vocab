@@ -43,7 +43,7 @@ const TypingPractice = () => {
         try {
             const token = localStorage.getItem('token');
             if (token) {
-                const res = await fetch('http://localhost:5000/api/auth/me', {
+                const res = await fetch('https://vocabultra.onrender.com/api/auth/me', {
                     headers: { 'x-auth-token': token }
                 });
                 const data = await res.json();
@@ -125,7 +125,7 @@ const TypingPractice = () => {
         try {
             const token = localStorage.getItem('token');
             if (token) {
-                const res = await fetch('http://localhost:5000/api/auth/typing-result', {
+                const res = await fetch('https://vocabultra.onrender.com/api/auth/typing-result', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
