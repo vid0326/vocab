@@ -52,7 +52,7 @@ const ProfileCard = ({ onClose }) => {
                     ) : (
                         <FaUser size={40} color="var(--text-muted)" />
                     )}
-                </div>}
+                </div>
                 <button
                     onClick={() => fileInputRef.current.click()}
                     style={{
