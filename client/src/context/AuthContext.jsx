@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
         setAuthToken(token);
 
         try {
-            const res = await axios.get('http://localhost:5000/api/auth/me');
+            const res = await axios.get('https://vocabultra.onrender.com/api/auth/me');
             setUser(res.data);
         } catch (err) {
             console.error(err);
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
             setAuthToken(res.data.token);
             setUser(res.data.user);
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
 
     const googleLogin = async (token) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/google', { token });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/google', { token });
             localStorage.setItem('token', res.data.token);
             setAuthToken(res.data.token);
             setUser(res.data.user);
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, email, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/register', { username, email, password });
             toast.success(res.data.msg);
             return true;
         } catch (err) {
@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
 
     const updateAvatar = async (formData) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/upload-avatar', formData, {
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/upload-avatar', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -95,7 +95,7 @@ export const AuthProvider = ({ children }) => {
 
     const verifyEmail = async (email, otp) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/verify-email', { email, otp });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/verify-email', { email, otp });
             toast.success(res.data.msg);
             return true;
         } catch (err) {
@@ -106,7 +106,7 @@ export const AuthProvider = ({ children }) => {
 
     const forgotPassword = async (email) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/forgot-password', { email });
             toast.success(res.data.msg);
             return true;
         } catch (err) {
@@ -117,7 +117,7 @@ export const AuthProvider = ({ children }) => {
 
     const resetPassword = async (email, otp, newPassword) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/reset-password', { email, otp, newPassword });
+            const res = await axios.post('https://vocabultra.onrender.com/api/auth/reset-password', { email, otp, newPassword });
             toast.success(res.data.msg);
             return true;
         } catch (err) {
