@@ -19,7 +19,7 @@ const MyWords = () => {
 
     const fetchWords = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/words');
+            const res = await axios.get('https://vocabultra.onrender.com/api/words');
             setWords(res.data);
         } catch (err) {
             console.error(err);
@@ -40,7 +40,7 @@ const MyWords = () => {
 
     const performDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/words/${id}`);
+            await axios.delete(`https://vocabultra.onrender.com/api/words/${id}`);
             setWords(words.filter(w => w._id !== id));
             toast.success('Word removed from collection');
         } catch (err) {
@@ -84,7 +84,7 @@ const MyWords = () => {
 
     const performBatchDelete = async () => {
         try {
-            await axios.post('http://localhost:5000/api/words/batch-delete', { ids: selectedIds });
+            await axios.post('https://vocabultra.onrender.com/api/words/batch-delete', { ids: selectedIds });
             setWords(words.filter(w => !selectedIds.includes(w._id)));
             setSelectedIds([]);
             setSelectionMode(false);
