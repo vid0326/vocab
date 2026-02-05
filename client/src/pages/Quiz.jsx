@@ -17,7 +17,7 @@ const Quiz = () => {
 
     const fetchWords = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/words');
+            const res = await axios.get('https://vocabultra.onrender.com/api/words');
             setWords(res.data);
             if (res.data.length >= 4) {
                 generateQuiz(res.data);
@@ -59,7 +59,7 @@ const Quiz = () => {
 
 
         try {
-            await axios.post('http://localhost:5000/api/quiz-result', {
+            await axios.post('https://vocabultra.onrender.com/api/quiz-result', {
                 wordId: questions[currentQ].correctId,
                 isCorrect
             });
