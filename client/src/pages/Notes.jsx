@@ -27,7 +27,7 @@ const Notes = () => {
 
     const fetchNotes = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/notes');
+            const res = await axios.get('https://vocabultra.onrender.com/api/notes');
             setNotes(res.data);
             if (res.data.length > 0 && !activeNote) {
                 
@@ -42,7 +42,7 @@ const Notes = () => {
 
     const createNote = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/notes', {
+            const res = await axios.post('https://vocabultra.onrender.com/api/notes', {
                 title: 'Untitled',
                 content: ''
             });
@@ -73,7 +73,7 @@ const Notes = () => {
 
     const performDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/notes/${id}`);
+            await axios.delete(`https://vocabultra.onrender.com/api/notes/${id}`);
             setNotes(notes.filter(n => n._id !== id));
             if (activeNote && activeNote._id === id) {
                 setActiveNote(null);
@@ -122,7 +122,7 @@ const Notes = () => {
 
     const performBatchDelete = async () => {
         try {
-            await axios.post('http://localhost:5000/api/notes/batch-delete', { ids: selectedIds });
+            await axios.post('https://vocabultra.onrender.com/api/notes/batch-delete', { ids: selectedIds });
             setNotes(notes.filter(n => !selectedIds.includes(n._id)));
             setSelectedIds([]);
             setSelectionMode(false);
@@ -149,7 +149,7 @@ const Notes = () => {
 
     const saveNote = async (noteToSave) => {
         try {
-            await axios.put(`http://localhost:5000/api/notes/${noteToSave._id}`, noteToSave);
+            await axios.put(`https://vocabultra.onrender.com/api/notes/${noteToSave._id}`, noteToSave);
             setSaving(false);
         } catch (err) {
             console.error(err);
@@ -167,7 +167,7 @@ const Notes = () => {
             });
         setNotes(newNotes);
         try {
-            await axios.put(`http://localhost:5000/api/notes/${note._id}`, updatedNote);
+            await axios.put(`https://vocabultra.onrender.com/api/notes/${note._id}`, updatedNote);
         } catch (err) {
             toast.error('Failed to update pin status');
             fetchNotes();
