@@ -82,7 +82,7 @@ const Dictionary = () => {
         };
 
         try {
-            await axios.post('http://localhost:5000/api/words', wordData);
+            await axios.post('https://vocabultra.onrender.com/api/words', wordData);
             toast.success('Word saved to your collection!');
         } catch (err) {
             console.error(err);
